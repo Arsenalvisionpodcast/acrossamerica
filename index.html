@@ -40,20 +40,34 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
+      padding: 0.75rem 2rem;
       background: rgba(10,10,10,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(239,1,7,0.2);
     }
 
-    .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.08em;
-      color: var(--white);
+    .nav-logos {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
-    .nav-logo span { color: var(--red); }
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-logo-img.aa {
+      height: 28px;
+    }
+
+    .nav-logo-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(239,1,7,0.35);
+      flex-shrink: 0;
+    }
 
     nav ul {
       list-style: none;
@@ -164,6 +178,50 @@
       line-height: 1.7;
       position: relative;
       animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    /* ── PRESENTED BY ── */
+    .presented-by {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 2rem;
+      position: relative;
+      animation: fadeUp 0.6s 0.25s ease both;
+      flex-wrap: wrap;
+    }
+
+    .presented-by-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+
+    .presented-by-logos {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .presented-by-logo {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+
+    .presented-by-logo.aa {
+      height: 38px;
+    }
+
+    .presented-by-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.12);
+      flex-shrink: 0;
     }
 
     .hero-meta {
@@ -1063,13 +1121,51 @@
       .venue-grid { grid-template-columns: 1fr; }
       .requirements-grid { grid-template-columns: 1fr; }
       .about-stats { grid-template-columns: 1fr 1fr; }
+      .hero-meta-divider { display: none; }
+      .hero-meta { gap: 1.25rem; }
+      .fixture-notice { margin: 1.5rem 0 0; }
     }
 
     @media (max-width: 540px) {
+      nav { padding: 0.75rem 1rem; }
+      .nav-logo-img { height: 30px; }
+      .nav-logo-img.aa { height: 22px; }
+
+      #hero { padding: 5rem 1.25rem 4rem; }
+
+      .hero-badge { font-size: 0.68rem; padding: 0.35rem 0.75rem; }
+
+      .presented-by { gap: 0.75rem; }
+      .presented-by-logo { height: 40px; }
+      .presented-by-logo.aa { height: 28px; }
+
+      .hero-meta { gap: 0.75rem; }
+      .hero-meta-value { font-size: 1.05rem; }
+
+      .fixture-notice { padding: 0.85rem 1rem; gap: 0.75rem; }
+      .fixture-notice p { font-size: 0.78rem; }
+
       .countdown-unit { min-width: 65px; padding: 0.75rem; }
       .countdown-num { font-size: 2.2rem; }
-      .hero-actions { flex-direction: column; align-items: center; }
+
+      .hero-actions { flex-direction: column; align-items: stretch; width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; }
+      .hero-actions .btn { justify-content: center; }
+
       .venue-features { grid-template-columns: 1fr; }
+
+      section { padding: 4rem 1.25rem; }
+
+      .section-title { font-size: clamp(2rem, 8vw, 3rem); }
+
+      .join-card { padding: 1.5rem; }
+      .prize-card { padding: 1.75rem; }
+      .foundation-inner { padding: 2.5rem 1.25rem; }
+
+      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+      #cta { padding: 3.5rem 1.25rem; }
+      #cta h2 { font-size: clamp(2rem, 8vw, 3.5rem); }
     }
   </style>
 </head>
@@ -1077,7 +1173,11 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Arsenal <span>Across</span> America</div>
+    <div class="nav-logos">
+      <img src="AVP_FullShield.1000x1000 copy.png" alt="ArsenalVision Podcast" class="nav-logo-img" />
+      <div class="nav-logo-divider"></div>
+      <img src="Arsenal-America-Transparent-Background.png" alt="Arsenal America" class="nav-logo-img aa" />
+    </div>
     <ul>
       <li><a href="#about">The Event</a></li>
       <li><a href="#join">Get Involved</a></li>
@@ -1102,9 +1202,17 @@
     </h1>
 
     <p class="hero-subtitle">
-      An Arsenal America &amp; ArsenalVision Podcast event uniting Gooners
-      across the nation for one unforgettable match day.
+      A joint event uniting Gooners across the nation for one unforgettable match day.
     </p>
+
+    <div class="presented-by">
+      <span class="presented-by-label">A joint event by</span>
+      <div class="presented-by-logos">
+        <img src="AVP_FullShield.1000x1000 copy.png" alt="ArsenalVision Podcast" class="presented-by-logo" />
+        <div class="presented-by-divider"></div>
+        <img src="Arsenal-America-Transparent-Background.png" alt="Arsenal America" class="presented-by-logo aa" />
+      </div>
+    </div>
 
     <div class="hero-meta">
       <!-- EVENT DATE -->
@@ -1413,7 +1521,11 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-inner">
-      <div class="footer-logo">Arsenal <span>Across</span> America <span style="color:var(--gray); font-size:0.85rem; font-family:'Inter',sans-serif; font-weight:400; letter-spacing:0;">2026</span></div>
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <img src="AVP_FullShield.1000x1000 copy.png" alt="ArsenalVision Podcast" style="height:38px; width:auto;" />
+        <div style="width:1px; height:28px; background:rgba(255,255,255,0.1);"></div>
+        <img src="Arsenal-America-Transparent-Background.png" alt="Arsenal America" style="height:26px; width:auto;" />
+      </div>
       <ul class="footer-links">
         <li><a href="https://www.arsenalvisionpodcast.com" target="_blank" rel="noopener">ArsenalVision Podcast</a></li>
         <li><a href="https://www.franklinhalldc.com" target="_blank" rel="noopener">Franklin Hall DC</a></li>
